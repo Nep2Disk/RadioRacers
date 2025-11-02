@@ -172,16 +172,36 @@ INT32 RR_FetchAlternateTripwire(INT32 original_textnum)
     strncpy(texname, textures[original_textnum]->name, 8);
     texname[8] = '\0';
 
-    boolean is_tripwire_texture = strstr(texname, "TRIPWIRE") != NULL;
-    boolean is_4x_tripwire_texture = strstr(texname, "4RIPWIRE") != NULL;
+    // Static
+    boolean is_short_tripwire_texture = strstr(texname, "TRIPWLOW") != NULL;
+    boolean is_short_2x_tripwire_texture = strstr(texname, "2RIPWLOW") != NULL;
+    boolean is_short_4x_tripwire_texture = strstr(texname, "4RIPWLOW") != NULL;
+
+    boolean is_tall_tripwire_texture = strstr(texname, "TRIPWIRE") != NULL;
+    boolean is_tall_2x_tripwire_texture = strstr(texname, "2RIPWIRE") != NULL;
+    boolean is_tall_4x_tripwire_texture = strstr(texname, "4RIPWIRE") != NULL;
+
     boolean is_vertical_tripwire = strstr(texname, "VRIPWIRE") != NULL;
 
-    boolean is_tripwire_animated_texture = strstr(texname, "TWIRE") != NULL;
-    boolean is_4x_tripwire_animated_texture = strstr(texname, "4WIRE") != NULL;
+    // Animated
+    boolean is_short_tripwire_animated_texture = strstr(texname, "TWLOW") != NULL;
+    boolean is_short_2x_tripwire_animated_texture = strstr(texname, "2WLOW") != NULL;
+    boolean is_short_4x_tripwire_animated_texture = strstr(texname, "4WLOW") != NULL;
+
+    boolean is_tall_tripwire_animated_texture = strstr(texname, "TWIRE") != NULL;
+    boolean is_tall_2x_tripwire_animated_texture = strstr(texname, "2WIRE") != NULL;
+    boolean is_tall_4x_tripwire_animated_texture = strstr(texname, "4WIRE") != NULL;
+
     boolean is_vertical_tripwire_animated_texture = strstr(texname, "VWIRE") != NULL;
 
-    boolean is_tripwire = (is_tripwire_texture || is_4x_tripwire_texture || is_vertical_tripwire);
-    boolean is_animated_tripwire = (is_tripwire_animated_texture || is_4x_tripwire_animated_texture || is_vertical_tripwire_animated_texture);
+    boolean is_short_tripwire = (is_short_tripwire_texture || is_short_2x_tripwire_texture || is_short_4x_tripwire_texture);
+    boolean is_short_tripwire_animated = (is_short_tripwire_animated_texture || is_short_2x_tripwire_animated_texture || is_short_4x_tripwire_animated_texture);
+    
+    boolean is_tall_tripwire = (is_tall_tripwire_texture || is_tall_2x_tripwire_texture || is_tall_4x_tripwire_texture);
+    boolean is_tall_tripwire_animated = (is_tall_tripwire_animated_texture || is_tall_2x_tripwire_animated_texture || is_tall_4x_tripwire_animated_texture);
+
+    boolean is_tripwire = (is_short_tripwire || is_tall_tripwire || is_vertical_tripwire);
+    boolean is_animated_tripwire = (is_short_tripwire_animated || is_tall_tripwire_animated || is_vertical_tripwire_animated_texture);
 
     // Is this actually a tripwire texture?
     if (!is_tripwire && !is_animated_tripwire) {
@@ -193,19 +213,43 @@ INT32 RR_FetchAlternateTripwire(INT32 original_textnum)
         // Show BAD tripwire (red)
         if (is_tripwire) {
             // Static
-            if (is_tripwire_texture) {
-                return RADIO_BADWIRE_TEX_ID;
-            } else if (is_4x_tripwire_texture) {
-                return RADIO_BADWIRE_4X_TEX_ID;
+            if (is_short_tripwire) {
+                if (is_short_tripwire_texture) {
+                    return RADIO_BADWIRE_SHORT_TEX_ID;
+                } else if(is_short_2x_tripwire_texture) {
+                    return RADIO_BADWIRE_2X_SHORT_TEX_ID;
+                } else if(is_short_4x_tripwire_texture) {
+                    return RADIO_BADWIRE_4X_SHORT_TEX_ID;
+                }
+            } else if (is_tall_tripwire) {
+                if (is_tall_tripwire_texture) {
+                    return RADIO_BADWIRE_TALL_TEX_ID;
+                } else if(is_tall_2x_tripwire_texture) {
+                    return RADIO_BADWIRE_2X_TALL_TEX_ID;
+                } else if(is_tall_4x_tripwire_texture) {
+                    return RADIO_BADWIRE_4X_TALL_TEX_ID;
+                }
             } else if (is_vertical_tripwire) {
                 return RADIO_BADWIRE_VERTICAL_TEX_ID;
             }
         } else { 
             // Animated
-            if (is_tripwire_animated_texture) {
-                return R_GetTextureNum(RADIO_BADWIRE_TEX_ID);
-            } else if (is_4x_tripwire_animated_texture) {
-                return R_GetTextureNum(RADIO_BADWIRE_4X_TEX_ID);
+            if (is_short_tripwire_animated) {
+                if (is_short_tripwire_animated_texture) {
+                    return R_GetTextureNum(RADIO_BADWIRE_SHORT_TEX_ID);
+                } else if(is_short_2x_tripwire_animated_texture) {
+                    return R_GetTextureNum(RADIO_BADWIRE_2X_SHORT_TEX_ID);
+                } else if(is_short_4x_tripwire_animated_texture) {
+                    return R_GetTextureNum(RADIO_BADWIRE_4X_SHORT_TEX_ID);
+                }
+            } else if (is_tall_tripwire_animated) {
+                if (is_tall_tripwire_animated_texture) {
+                    return R_GetTextureNum(RADIO_BADWIRE_TALL_TEX_ID);
+                } else if(is_tall_2x_tripwire_animated_texture) {
+                    return R_GetTextureNum(RADIO_BADWIRE_2X_TALL_TEX_ID);
+                } else if(is_tall_4x_tripwire_animated_texture) {
+                    return R_GetTextureNum(RADIO_BADWIRE_4X_TALL_TEX_ID);
+                }
             } else if (is_vertical_tripwire_animated_texture) {
                 return R_GetTextureNum(RADIO_BADWIRE_VERTICAL_TEX_ID);
             }
@@ -214,19 +258,43 @@ INT32 RR_FetchAlternateTripwire(INT32 original_textnum)
         // Show GOOD tripwire (green)
         if (is_tripwire) {
             // Static
-            if (is_tripwire_texture) {
-                return RADIO_GOODWIRE_TEX_ID;
-            } else if (is_4x_tripwire_texture) {
-                return RADIO_GOODWIRE_4X_TEX_ID;
+            if (is_short_tripwire) {
+                if (is_short_tripwire_texture) {
+                    return RADIO_GOODWIRE_SHORT_TEX_ID;
+                } else if(is_short_2x_tripwire_texture) {
+                    return RADIO_GOODWIRE_2X_SHORT_TEX_ID;
+                } else if(is_short_4x_tripwire_texture) {
+                    return RADIO_GOODWIRE_4X_SHORT_TEX_ID;
+                }
+            } else if (is_tall_tripwire) {
+                if (is_tall_tripwire_texture) {
+                    return RADIO_GOODWIRE_TALL_TEX_ID;
+                } else if(is_tall_2x_tripwire_texture) {
+                    return RADIO_GOODWIRE_2X_TALL_TEX_ID;
+                } else if(is_tall_4x_tripwire_texture) {
+                    return RADIO_GOODWIRE_4X_TALL_TEX_ID;
+                }
             } else if (is_vertical_tripwire) {
                 return RADIO_GOODWIRE_VERTICAL_TEX_ID;
             }
         } else { 
             // Animated
-            if (is_tripwire_animated_texture) {
-                return R_GetTextureNum(RADIO_GOODWIRE_TEX_ID);
-            } else if (is_4x_tripwire_animated_texture) {
-                return R_GetTextureNum(RADIO_GOODWIRE_4X_TEX_ID);
+            if (is_short_tripwire_animated) {
+                if (is_short_tripwire_animated_texture) {
+                    return R_GetTextureNum(RADIO_GOODWIRE_SHORT_TEX_ID);
+                } else if(is_short_2x_tripwire_animated_texture) {
+                    return R_GetTextureNum(RADIO_GOODWIRE_2X_SHORT_TEX_ID);
+                } else if(is_short_4x_tripwire_animated_texture) {
+                    return R_GetTextureNum(RADIO_GOODWIRE_4X_SHORT_TEX_ID);
+                }
+            } else if (is_tall_tripwire_animated) {
+                if (is_tall_tripwire_animated_texture) {
+                    return R_GetTextureNum(RADIO_GOODWIRE_TALL_TEX_ID);
+                } else if(is_tall_2x_tripwire_animated_texture) {
+                    return R_GetTextureNum(RADIO_GOODWIRE_2X_TALL_TEX_ID);
+                } else if(is_tall_4x_tripwire_animated_texture) {
+                    return R_GetTextureNum(RADIO_GOODWIRE_4X_TALL_TEX_ID);
+                }
             } else if (is_vertical_tripwire_animated_texture) {
                 return R_GetTextureNum(RADIO_GOODWIRE_VERTICAL_TEX_ID);
             }

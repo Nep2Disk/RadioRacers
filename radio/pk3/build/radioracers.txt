@@ -3,17 +3,33 @@ $output out/radioracers.pk3
 
 # Textures need to be sorted in a certain order
 
-textures/tripwire/bad/4x/4ADTWIRE.lmp
-textures/tripwire/bad/4x/**
+textures/tripwire/bad/Short/1x/TRIPBLOW.lmp
+textures/tripwire/bad/Short/1x/**
+textures/tripwire/bad/Short/2x/2RIPBLOW.lmp
+textures/tripwire/bad/Short/2x/**
+textures/tripwire/bad/Short/4x/4RIPBLOW.lmp
+textures/tripwire/bad/Short/4x/**
+textures/tripwire/bad/Tall/1x/BADTWIRE.lmp
+textures/tripwire/bad/Tall/1x/**
+textures/tripwire/bad/Tall/2x/2RIPBDRE.lmp
+textures/tripwire/bad/Tall/2x/**
+textures/tripwire/bad/Tall/4x/4RIPBDRE.lmp
+textures/tripwire/bad/Tall/4x/**
 textures/tripwire/bad/Vertical/BADVWIRE.lmp
 textures/tripwire/bad/Vertical/**
-textures/tripwire/bad/BADTWIRE.lmp
-textures/tripwire/bad/**
-textures/tripwire/good/4x/4UDTWIRE.lmp
-textures/tripwire/good/4x/**
+textures/tripwire/good/Short/1x/TRIPGLOW.lmp
+textures/tripwire/good/Short/1x/**
+textures/tripwire/good/Short/2x/2RIPGLOW.lmp
+textures/tripwire/good/Short/2x/**
+textures/tripwire/good/Short/4x/4RIPGLOW.lmp
+textures/tripwire/good/Short/4x/**
+textures/tripwire/good/Tall/1x/GUDTWIRE.lmp
+textures/tripwire/good/Tall/1x/**
+textures/tripwire/good/Tall/2x/2RIPGDRE.lmp
+textures/tripwire/good/Tall/2x/**
+textures/tripwire/good/Tall/4x/4RIPGDRE.lmp
+textures/tripwire/good/Tall/4x/**
 textures/tripwire/good/Vertical/GUDVWIRE.lmp
 textures/tripwire/good/Vertical/**
-textures/tripwire/good/GUDTWIRE.lmp
-textures/tripwire/good/**
 
 **

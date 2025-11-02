@@ -1334,27 +1334,66 @@ Rloadtextures (INT32 i, INT32 w)
 			M_Memcpy(texture->name, W_CheckNameForNumPwad(wadnum, lumpnum), sizeof(texture->name));
 
 			// RADIO: Reliable place to get the texture name and compare
-			if (strcmp(texture->name, RADIO_BADWIRE_TEX_NAME) == 0) {
-				RADIO_BADWIRE_TEX_ID = i;
-				CONS_Printf("Found texture ID for 'BAD' tripwire #%d\n", i);
+
+			// Bad short
+			if (strcmp(texture->name, RADIO_BADWIRE_SHORT_TEX_NAME) == 0) {
+				RADIO_BADWIRE_SHORT_TEX_ID = i;
+				CONS_Printf("Found texture ID for short 'BAD' tripwire #%d\n", i);
 			}
-			if (strcmp(texture->name, RADIO_BADWIRE_4X_TEX_NAME) == 0) {
-				RADIO_BADWIRE_4X_TEX_ID = i;
-				CONS_Printf("Found texture ID for 'BAD' 4x tripwire #%d\n", i);
+			if (strcmp(texture->name, RADIO_BADWIRE_2X_SHORT_TEX_NAME) == 0) {
+				RADIO_BADWIRE_2X_SHORT_TEX_ID = i;
+				CONS_Printf("Found texture ID for short 'BAD' 2x tripwire #%d\n", i);
 			}
+			if (strcmp(texture->name, RADIO_BADWIRE_4X_SHORT_TEX_NAME) == 0) {
+				RADIO_BADWIRE_4X_SHORT_TEX_ID = i;
+				CONS_Printf("Found texture ID for short 'BAD' 4x tripwire #%d\n", i);
+			}
+			// Bad tall
+			if (strcmp(texture->name, RADIO_BADWIRE_TALL_TEX_NAME) == 0) {
+				RADIO_BADWIRE_TALL_TEX_ID = i;
+				CONS_Printf("Found texture ID for tall 'BAD' tripwire #%d\n", i);
+			}
+			if (strcmp(texture->name, RADIO_BADWIRE_2X_TALL_TEX_NAME) == 0) {
+				RADIO_BADWIRE_2X_TALL_TEX_ID = i;
+				CONS_Printf("Found texture ID for tall 'BAD' 2x tripwire #%d\n", i);
+			}
+			if (strcmp(texture->name, RADIO_BADWIRE_4X_TALL_TEX_NAME) == 0) {
+				RADIO_BADWIRE_4X_TALL_TEX_ID = i;
+				CONS_Printf("Found texture ID for tall 'BAD' 4x tripwire #%d\n", i);
+			}
+			// Bad vertical
 			if (strcmp(texture->name, RADIO_BADWIRE_VERTICAL_TEX_NAME) == 0) {
 				RADIO_BADWIRE_VERTICAL_TEX_ID = i;
 				CONS_Printf("Found texture ID for 'BAD' VERTICAL tripwire #%d\n", i);
 			}
 
-			if (strcmp(texture->name, RADIO_GOODWIRE_TEX_NAME) == 0) {
-				RADIO_GOODWIRE_TEX_ID = i;
-				CONS_Printf("Found texture ID for 'GOOD' tripwire #%d\n", i);
+			// Good short
+			if (strcmp(texture->name, RADIO_GOODWIRE_SHORT_TEX_NAME) == 0) {
+				RADIO_GOODWIRE_SHORT_TEX_ID = i;
+				CONS_Printf("Found texture ID for short 'GOOD' tripwire #%d\n", i);
 			}
-			if (strcmp(texture->name, RADIO_GOODWIRE_4X_TEX_NAME) == 0) {
-				RADIO_GOODWIRE_4X_TEX_ID = i;
-				CONS_Printf("Found texture ID for 'GOOD' 4x tripwire #%d\n", i);
+			if (strcmp(texture->name, RADIO_GOODWIRE_2X_SHORT_TEX_NAME) == 0) {
+				RADIO_GOODWIRE_2X_SHORT_TEX_ID = i;
+				CONS_Printf("Found texture ID for short 'GOOD' 2x tripwire #%d\n", i);
 			}
+			if (strcmp(texture->name, RADIO_GOODWIRE_4X_SHORT_TEX_NAME) == 0) {
+				RADIO_GOODWIRE_4X_SHORT_TEX_ID = i;
+				CONS_Printf("Found texture ID for short 'GOOD' 4x tripwire #%d\n", i);
+			}
+			// Good tall
+			if (strcmp(texture->name, RADIO_GOODWIRE_TALL_TEX_NAME) == 0) {
+				RADIO_GOODWIRE_TALL_TEX_ID = i;
+				CONS_Printf("Found texture ID for tall 'GOOD' tripwire #%d\n", i);
+			}
+			if (strcmp(texture->name, RADIO_GOODWIRE_2X_TALL_TEX_NAME) == 0) {
+				RADIO_GOODWIRE_2X_TALL_TEX_ID = i;
+				CONS_Printf("Found texture ID for tall 'GOOD' 2x tripwire #%d\n", i);
+			}
+			if (strcmp(texture->name, RADIO_GOODWIRE_4X_TALL_TEX_NAME) == 0) {
+				RADIO_GOODWIRE_4X_TALL_TEX_ID = i;
+				CONS_Printf("Found texture ID for tall 'GOOD' 4x tripwire #%d\n", i);
+			}
+			// Good vertical
 			if (strcmp(texture->name, RADIO_GOODWIRE_VERTICAL_TEX_NAME) == 0) {
 				RADIO_GOODWIRE_VERTICAL_TEX_ID = i;
 				CONS_Printf("Found texture ID for 'GOOD' VERTICAL tripwire #%d\n", i);
